@@ -1,0 +1,43 @@
+.bg-gradient-primary,
+.btn {
+  background-color: rgb(17, 51, 151);
+  background-image: linear-gradient(rgb(17, 51, 151) 10%, rgb(17, 52, 154));
+}
+.sidebar-dark,
+.sidebar-brand {
+  color: rgb(242, 240, 237);
+}
+.sidebar-dark hr.sidebar-divider {
+  border-top-color: rgba(40, 44, 47, 0.15);
+}
+.text-light {
+  color: rgb(223, 235, 249) !important;
+}
+body,
+.card-body {
+  color: rgb(163, 154, 141);
+  background-color: rgb(14, 16, 17);
+}
+.sidebar-dark #sidebarToggle {
+  background-color: rgba(14, 16, 17, 0.2);
+}
+#wrapper #content-wrapper {
+  background-color: rgb(17, 19, 20);
+}
+.text-dark {
+  color: rgb(174, 167, 154) !important;
+}
+.shadow {
+  box-shadow: rgba(40, 44, 47, 0.15) 0px 0.15rem 1.75rem 0px !important;
+}
+.card-header {
+  background-color: rgb(17, 19, 20);
+  border-bottom-color: rgb(31, 40, 70);
+}
+.bg-white {
+  background-color: rgb(14, 16, 17) !important;
+}
+.custom-control,
+.custom-control-label {
+  cursor: pointer;
+}

@@ -68,14 +68,14 @@
       <div class="d-flex flex-column" id="content-wrapper">
         <div id="content">
           <div class="container">
-            <div class="row">
-              <div class="col">
-                <h3 class="text-dark mb-4 mt-4">Cadastrar pessoas</h3>
+            <form class="user mt-4">
+              <div class="row">
+                <div class="col">
+                  <h3 class="text-dark mb-4 mt-4">Cadastrar pessoas</h3>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col col-md-4">
-                <form class="user mt-4">
+              <div class="row">
+                <div class="col col-md-4">
                   <div class="form-group mb-4">
                     <h5 class="mb-2">Nome do Pagador</h5>
                     <input
@@ -86,10 +86,8 @@
                       name="name"
                     />
                   </div>
-                </form>
-              </div>
-              <div class="col col-md-4">
-                <form class="user mt-4">
+                </div>
+                <div class="col col-md-4">
                   <div class="form-group mb-4">
                     <h5 class="mb-2">Valor</h5>
                     <input
@@ -100,10 +98,8 @@
                       name="valor"
                     />
                   </div>
-                </form>
-              </div>
-              <div class="col col-md-4">
-                <form class="user mt-4">
+                </div>
+                <div class="col col-md-4">
                   <div class="form-group mb-4">
                     <h5 class="mb-2">CPF ou CNPJ (opcional)</h5>
                     <input
@@ -114,12 +110,10 @@
                       name="cpf"
                     />
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <form class="user mt-4">
+              <div class="row">
+                <div class="col">
                   <div class="form-group mb-4">
                     <h5 class="mb-2">Referente à</h5>
                     <input
@@ -130,12 +124,10 @@
                       name="referente"
                     />
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col col-md-4">
-                <form class="user mt-4">
+              <div class="row">
+                <div class="col col-md-4">
                   <div class="form-group mb-4">
                     <h5 class="mb-2">Cidade</h5>
                     <input
@@ -146,24 +138,22 @@
                       name="cidade"
                     />
                   </div>
-                </form>
-              </div>
-              <div class="col col-md-4">
-                <form class="user mt-4">
+                </div>
+                <div class="col col-md-4">
                   <div class="form-group mb-4">
                     <h5 class="mb-2">Data Inicial</h5>
                     <input
                       class="form-control form-control-user"
-                      type="date"
+                      type="number"
+                      min="1"
+                      max="31"
                       id="value"
                       placeholder="Insira a data"
                       name="data"
                     />
                   </div>
-                </form>
-              </div>
-              <div class="col col-md-4">
-                <form class="user mt-4">
+                </div>
+                <div class="col col-md-4">
                   <div class="form-group mb-4">
                     <h5 class="mb-2">Emissor</h5>
                     <input
@@ -174,19 +164,19 @@
                       name="emissor"
                     />
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-            <div class="row mt-5 d-flex justify-content-center">
-              <div class="col col-md-4 d-flex justify-content-center">
-                <button
-                  class="btn btn-primary text-white btn-user btn-block"
-                  type="submit"
-                >
-                  Cadastrar
-                </button>
+              <div class="row mt-5 d-flex justify-content-center">
+                <div class="col col-md-4 d-flex justify-content-center">
+                  <button
+                    class="btn btn-primary text-white btn-user btn-block"
+                    type="submit"
+                  >
+                    Cadastrar
+                  </button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <footer class="bg-white sticky-footer">
@@ -197,9 +187,6 @@
           </div>
         </footer>
       </div>
-      <a class="border rounded d-inline scroll-to-top" href="#page-top"
-        ><i class="fas fa-angle-up"></i
-      ></a>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>

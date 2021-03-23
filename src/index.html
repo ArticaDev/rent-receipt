@@ -139,143 +139,8 @@
                         <th>Baixar recibos</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td><a href="profile.html"> Airi Satou</a></td>
-                        <td>
-                          Quadra QS 108 Conjunto 3, Samambaia Sul (Samambaia)
-                        </td>
-                        <td>Felipe</td>
-                        <td>12</td>
-                        <td>
-                          <a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block"
-                            role="button"
-                            href="receipts.html"
-                            ><i class="fas fa-download fa-sm text-white-50"></i>
-                            Gerar Recibos</a
-                          >
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="profile.html"> Gabriela Cecília Castro</a>
-                        </td>
-                        <td>Quadra QI 11 Conjunto X, Guará I</td>
-                        <td>Felipe</td>
-                        <td>20</td>
-                        <td>
-                          <a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block"
-                            role="button"
-                            href="receipts.html"
-                            ><i class="fas fa-download fa-sm text-white-50"></i>
-                            Gerar Recibos</a
-                          >
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="profile.html"> Gabriela Cecília Castro</a>
-                        </td>
-                        <td>Quadra QI 11 Conjunto X, Guará I</td>
-                        <td>Felipe</td>
-                        <td>20</td>
-                        <td>
-                          <a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block"
-                            role="button"
-                            href="receipts.html"
-                            ><i class="fas fa-download fa-sm text-white-50"></i>
-                            Gerar Recibos</a
-                          >
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="profile.html"> Gabriela Cecília Castro</a>
-                        </td>
-                        <td>Quadra QI 11 Conjunto X, Guará I</td>
-                        <td>Felipe</td>
-                        <td>20</td>
-                        <td>
-                          <a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block"
-                            role="button"
-                            href="receipts.html"
-                            ><i class="fas fa-download fa-sm text-white-50"></i>
-                            Gerar Recibos</a
-                          >
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="profile.html"> Gabriela Cecília Castro</a>
-                        </td>
-                        <td>Quadra QI 11 Conjunto X, Guará I</td>
-                        <td>Felipe</td>
-                        <td>20</td>
-                        <td>
-                          <a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block"
-                            role="button"
-                            href="receipts.html"
-                            ><i class="fas fa-download fa-sm text-white-50"></i>
-                            Gerar Recibos</a
-                          >
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="profile.html"> Gabriela Cecília Castro</a>
-                        </td>
-                        <td>Quadra QI 11 Conjunto X, Guará I</td>
-                        <td>Felipe</td>
-                        <td>20</td>
-                        <td>
-                          <a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block"
-                            role="button"
-                            href="receipts.html"
-                            ><i class="fas fa-download fa-sm text-white-50"></i>
-                            Gerar Recibos</a
-                          >
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="profile.html"> Gabriela Cecília Castro</a>
-                        </td>
-                        <td>Quadra QI 11 Conjunto X, Guará I</td>
-                        <td>Felipe</td>
-                        <td>20</td>
-                        <td>
-                          <a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block"
-                            role="button"
-                            href="receipts.html"
-                            ><i class="fas fa-download fa-sm text-white-50"></i>
-                            Gerar Recibos</a
-                          >
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="profile.html"> Gabriela Cecília Castro</a>
-                        </td>
-                        <td>Quadra QI 11 Conjunto X, Guará I</td>
-                        <td>Felipe</td>
-                        <td>20</td>
-                        <td>
-                          <a
-                            class="btn btn-primary btn-sm d-none d-sm-inline-block"
-                            role="button"
-                            href="receipts.html"
-                            ><i class="fas fa-download fa-sm text-white-50"></i>
-                            Gerar Recibos</a
-                          >
-                        </td>
-                      </tr>
+                    <tbody id="people-table">
+
                     </tbody>
                     <tfoot>
                       <tr>
@@ -342,11 +207,16 @@
         ><i class="fas fa-angle-up"></i
       ></a>
     </div>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/script.min.js"></script>
+    <script src="renderer.js"></script>
+
     <script>
       let dark = false;
       function darkMode() {
@@ -361,5 +231,10 @@
         }
       }
     </script>
+
+  <script>if (window.module) module = window.module;</script>
+
+
+
   </body>
 </html>

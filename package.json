@@ -42,6 +42,7 @@
     }
   },
   "dependencies": {
+    "autonumeric": "^4.6.0",
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {

@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
+    "html-pdf-node": "^1.0.7",
     "lowdb": "^1.0.0"
   },
   "devDependencies": {

@@ -44,7 +44,8 @@
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
     "html-pdf-node": "^1.0.7",
-    "lowdb": "^1.0.0"
+    "lowdb": "^1.0.0",
+    "autonumeric": "^4.6.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",

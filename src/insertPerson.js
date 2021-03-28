@@ -4,8 +4,9 @@ const adapter = new FileSync('db.json')
 const db = low(adapter)
 
 $(function() {
-    $("#person-info-form").click(function() {
-
+    $("#person-info-form").click(function(e) {
+        e.preventDefault();
+        
         let value = $('#value').val()
         value = value.split("R$ ")[1]
 

@@ -13,7 +13,7 @@ function createPersonItem(Person) {
         <td>${Person.day}</td>
         <td>
           <a class="btn btn-primary btn-sm d-none d-sm-inline-block"
-            role="button" href="receipts.html">
+            role="button" href="receipts.html?name=${Person.name}">
             <i class="fas fa-download fa-sm text-white-50"></i>
             Gerar Recibos</a>
         </td>

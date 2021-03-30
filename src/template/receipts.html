@@ -1,0 +1,297 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      Nome="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Tabela - Gerador de Recibos</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/bootstrap/css/fonte.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css" />
+  </head>
+
+  <body id="page-top">
+    <div id="wrapper">
+      <nav
+        class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0"
+      >
+        <div class="container-fluid d-flex flex-column p-0">
+          <a
+            class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
+            href="index.html"
+          >
+            <div class="sidebar-brand-icon rotate-n-15">
+              <i class="fas fa-receipt"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3"><span>Recibos</span></div>
+          </a>
+          <hr class="sidebar-divider my-0" />
+          <ul class="navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html"
+                ><i class="fas fa-table"></i><span>Pessoas Cadastradas</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="newuser.html"
+                ><i class="far fa-user-circle"></i
+                ><span>Cadastrar novo usuário</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="receiptspage.html"
+                ><i class="fas fa-receipt"></i
+                ><span>Baixar múltiplos recibos</span></a
+              >
+            </li>
+          </ul>
+          <div class="text-center d-none d-md-inline">
+            <button
+              class="btn rounded-circle border-0"
+              id="sidebarToggle"
+              type="button"
+            ></button>
+          </div>
+        </div>
+      </nav>
+      <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+          <div class="container">
+            <h3 class="mt-4 display-name" >
+              Baixar todos os recibos de um período para 
+            </h3>
+            <div class="row mt-5">
+              <div
+                class="col d-flex justify-content-center align-items-center flex-column"
+              >
+                <div class="row">
+                  <div class="col"><input id="initial-date" class="date" type="month" /></div>
+                </div>
+                <div class="row">
+                  <div class="col"><p class="mt-3">até</p></div>
+                </div>
+                <div class="row">
+                  <div class="col"><input id="final-date" class="date" type="month" /></div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col">
+                    <a
+                      id="print"
+                      class="btn btn-primary btn-sm d-none d-sm-inline-block"
+                      role="button"
+                      href="receipt.html"
+                      ><i class="fas fa-download fa-sm text-white-50"></i>
+                      Baixar mês atual</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container mt-5">
+            <h3 class="mb-4 display-name">Controle de pagamento </h3>
+            <div class="row">
+              <div class="col">
+                <table class="table my-0" id="dataTable">
+                  <thead>
+                    <tr>
+                      <th class="text-center">Janeiro</th>
+                      <th class="text-center">Fevereiro</th>
+                      <th class="text-center">Março</th>
+                      <th class="text-center">Abril</th>
+                      <th class="text-center">Maio</th>
+                      <th class="text-center">Junho</th>
+                      <th class="text-center">Julho</th>
+                      <th class="text-center">Agosto</th>
+                      <th class="text-center">Setembro</th>
+                      <th class="text-center">Outubro</th>
+                      <th class="text-center">Novembro</th>
+                      <th class="text-center">Dezembro</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="jan" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="feb" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="mar" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="apr" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="may" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="jun" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="jul" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="aug" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="sep" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="oct" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="nov" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <input class="payment-status" id="dec" type="checkbox" />
+                          </div>
+                        </div>
+                        <div class="row mt-4">
+                          <div class="col d-flex justify-content-center">
+                            <p>Pago</p>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+          <div class="container my-auto">
+            <div class="text-center my-auto copyright">
+              <span>Copyright © Artica Dev - 2021</span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="../assets/js/script.min.js"></script>
+    <script src="../render/print.js"></script>
+    <script src="../render/receipts.js"></script>
+
+    
+    <script>if (window.module) module = window.module;</script>    
+
+  </body>
+</html>

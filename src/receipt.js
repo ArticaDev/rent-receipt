@@ -7,11 +7,11 @@ const querystring = require('querystring');
 $(function() {
 
     let queryParams = querystring.parse(global.location.search);
-    let name = queryParams['?name'];
-    let Person = db.get('people').find({ name: name }).value();
-
     let initialDate = queryParams['initialDate'];
     let finalDate = queryParams['finalDate'];
+
+    let name = queryParams['?name'];
+    let Person = db.get('people').find({ name: name }).value();
 
     let months = ["Janeiro","Fevereiro","Março","Abril","Maio",
     "Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];

@@ -85,6 +85,7 @@
                       id="name"
                       placeholder="Digite o nome do pagador"
                       name="name"
+                      required
                     />
                   </div>
                 </div>
@@ -98,6 +99,7 @@
                       placeholder="Digite o valor do recibo"
                       name="valor"
                       onkeypress="$(this).mask('R$ 999.990,00')"
+                      required
                     />
                   </div>
                 </div>
@@ -125,6 +127,7 @@
                       id="subject"
                       placeholder="Digite ao que se refere o pagamento, ex: aluguel da casa"
                       name="reference"
+                      required
                     />
                   </div>
                 </div>
@@ -139,6 +142,7 @@
                       id="address"
                       placeholder="Digite o Endereço"
                       name="address"
+                      required
                     />
                   </div>
                 </div>
@@ -153,6 +157,7 @@
                       id="day"
                       placeholder="Digite o dia"
                       name="data"
+                      required
                     />
                   </div>
                 </div>
@@ -165,6 +170,7 @@
                       id="emitter"
                       placeholder="Digite o emissor"
                       name="emissor"
+                      required
                     />
                   </div>
                 </div>
@@ -224,7 +230,9 @@
 
     <script>
       $("#person-info-form").click(function () {
-        $(".alert").show("fast");
+        if ($(".user").valid()) {
+          $(".alert").show("fast");
+        }
       });
     </script>
     <script>

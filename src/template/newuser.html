@@ -16,7 +16,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/fonts/fontawesome5-overrides.min.css"
+    />
   </head>
 
   <body id="page-top">
@@ -49,7 +52,8 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="receiptspage.html"
-                ><i class="fas fa-receipt"></i><span>Baixar múltiplos</span></a
+                ><i class="fas fa-receipt"></i
+                ><span>Baixar múltiplos recibos</span></a
               >
             </li>
           </ul>
@@ -170,10 +174,26 @@
                   <button
                     id="person-info-form"
                     class="btn btn-primary text-white btn-user btn-block"
-                    type="submit">
+                    type="submit"
+                  >
                     Cadastrar
                   </button>
                 </div>
+              </div>
+              <div
+                class="alert alert-success alert-dismissible fade show mt-5"
+                role="alert"
+                style="display: none"
+              >
+                Usuário cadastrado com sucesso.
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
             </form>
           </div>
@@ -188,18 +208,28 @@
       </div>
     </div>
 
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script>
+      if (typeof module === "object") {
+        window.module = module;
+        module = undefined;
+      }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="../assets/js/script.min.js"></script>
     <script src="../assets/js/jquery.mask.min.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
     <script src="../render/insertPerson.js"></script>
-    
-    
-    <script>if (window.module) module = window.module;</script>    
 
-
+    <script>
+      $("#person-info-form").click(function () {
+        $(".alert").show("fast");
+      });
+    </script>
+    <script>
+      if (window.module) module = window.module;
+    </script>
   </body>
 </html>

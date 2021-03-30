@@ -16,7 +16,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css" />
+    <link
+      rel="stylesheet"
+      href="../assets/fonts/fontawesome5-overrides.min.css"
+    />
   </head>
 
   <body id="page-top">
@@ -158,9 +161,67 @@
                               <button
                                 id="update-person-info"
                                 class="btn btn-primary btn-sm"
-                                type="submit">
+                                type="submit"
+                              >
                                 Salvar Alterações
                               </button>
+                              <button
+                                id=""
+                                class="btn btn-danger btn-sm"
+                                type="button"
+                                data-toggle="modal"
+                                data-target="#modal"
+                              >
+                                Deletar Pessoa
+                              </button>
+                              <!-- Modal -->
+                              <div
+                                class="modal fade"
+                                id="modal"
+                                tabindex="-1"
+                                role="dialog"
+                                aria-labelledby="delete-confirmation"
+                                aria-hidden="true"
+                              >
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5
+                                        class="modal-title"
+                                        id="delete-confirmation"
+                                      >
+                                        Atenção
+                                      </h5>
+                                      <button
+                                        type="button"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                      >
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      Tem certeza que quer deletar essa pessoa?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button
+                                        type="button"
+                                        class="btn btn-secondary"
+                                        data-dismiss="modal"
+                                      >
+                                        Cancelar
+                                      </button>
+                                      <button
+                                        type="submit"
+                                        class="btn btn-success"
+                                      >
+                                        Confirmar
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </form>
                         </div>
@@ -205,7 +266,8 @@
                               <button
                                 id="update-subject-info"
                                 class="btn btn-primary btn-sm"
-                                type="submit">
+                                type="submit"
+                              >
                                 Salvar Alterações
                               </button>
                             </div>
@@ -229,7 +291,12 @@
       </div>
     </div>
 
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script>
+      if (typeof module === "object") {
+        window.module = module;
+        module = undefined;
+      }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
@@ -237,9 +304,9 @@
     <script src="../assets/js/script.min.js"></script>
     <script src="../assets/js/jquery.mask.min.js"></script>
     <script src="../render/profile.js"></script>
-    
-    
-    <script>if (window.module) module = window.module;</script>    
 
+    <script>
+      if (window.module) module = window.module;
+    </script>
   </body>
 </html>

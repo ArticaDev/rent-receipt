@@ -1,9 +1,5 @@
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('db.json')
-const db = low(adapter)
+const db = window.db;
 const electron = require('electron');
-const path = require('path');
 const fs = require('fs');
 
 $(function() {
@@ -81,11 +77,11 @@ $(function() {
                    });
             
              
-            win.loadURL(`file://${__dirname}/receipt.html?name=${name + url}$`);
+            win.loadURL(`file://${__dirname}/../template/receipt.html?name=${name + url}$`);
     
             win.webContents.on('did-finish-load', () => {
                 win.webContents.printToPDF(options).then(data => {
-                    fs.writeFile(`${name}.pdf`, data, function (err) {
+                    fs.writeFile(`recibos/${name}.pdf`, data, function (err) {
                         if (err) console.log(err);
                         win.close();
                     });

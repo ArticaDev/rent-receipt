@@ -1,10 +1,13 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcRenderer } = require('electron');
+
+if (require('electron-squirrel-startup')) return;
+
 const path = require('path');
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 
-const adapter = new FileSync('db.json')
+const adapter = new FileSync(path.join(app.getAppPath(), "src/db/db.json"))
 const db = low(adapter)
 
 // Set some defaults (required if your JSON file is empty)
@@ -22,6 +25,7 @@ const createWindow = () => {
     width: 1600,
     height: 800,
     webPreferences: {
+      preload: path.join(app.getAppPath(), "src/preload.js"),
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true
@@ -30,7 +34,7 @@ const createWindow = () => {
   );
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, 'template/index.html'));
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
@@ -40,6 +44,7 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

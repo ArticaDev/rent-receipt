@@ -2,9 +2,15 @@ const db = window.db;
 
 
 $(function() {
+
+
     $("#person-info-form").click(function(e) {
         e.preventDefault();
-        
+    
+        if (!$(".user").valid())return;
+
+        $(".alert").show("fast");
+
         let value = $('#value').val()
         value = value.split("R$ ")[1]
 

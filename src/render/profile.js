@@ -43,4 +43,17 @@ $(function() {
         
     });
 
+    $("#remove-person").click(function(e) {
+
+        e.preventDefault();
+
+
+        db.get('people')
+        .remove({ name: name })
+        .write()
+
+        window.location.href='index.html';
+    });
+
+
 });

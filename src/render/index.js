@@ -1,24 +1,7 @@
 const db = window.db;
-const querystring = require('querystring');
 
-
-$(function() {
-
-  let queryParams = querystring.parse(global.location.search);
-  let begin = $.isEmptyObject(queryParams)? 0 : queryParams['?begin'];
-  let numberToShow = $.isEmptyObject(queryParams)? 10 : queryParams['numberToShow'];
-
-  $("#number-to-show").val(numberToShow);
-
-  $('#number-to-show').change(function(){
-    let numberToShow = $('#number-to-show option:selected').val();
-    window.location.href=`index.html?begin=0&numberToShow=${numberToShow}`
-  })
-
-
-  function createPersonItem(Person) {
-
-    let $row = $(`<tr>
+function createPersonItem(Person) {
+  let $row = $(`<tr>
         <td><a href="profile.html?name=${Person.name}">${Person.name}</a></td>
         <td>${Person.subject}</td>
         <td>${Person.address}</td>
@@ -32,52 +15,67 @@ $(function() {
         </td>
       </tr>`);
 
-    return $row;
-
+  return $row;
 }
 
-function updateView() {
+function updateView(begin = 0, numberToShow = 10, query = "") {
+  $("#people-table").empty();
+  $(".pagination").empty();
+  $("#number-to-show").val(numberToShow);
 
+  people = db.get("people").value();
 
-      people = db.get('people').value(); 
+  if (query) {
+    query = query.toLowerCase();
+    people = people.filter(
+      (p) =>
+        p.name.toLowerCase().includes(query) ||
+        p.address.toLowerCase().includes(query) ||
+        p.subject.toLowerCase().includes(query) ||
+        p.emitter.toLowerCase().includes(query)
+    );
+  }
 
-    
-    let numberOfRecords = people.length;
-
-    if(begin != 0){
-      
-      let $previous = $(`<li class="page-item ">
-      <a class="page-link" href="index.html?begin=${begin-numberToShow}&numberToShow=${numberToShow}" 
+  let numberOfRecords = people.length;
+  if (begin != 0) {
+    let $previous = $(`<li class="page-item ">
+      <a class="page-link" onclick="updateView(${
+        begin - numberToShow
+      }, ${numberToShow});return false;"
       aria-label="Previous">
       <span aria-hidden="true">« Anterior </span></a>`);
 
-      $('.pagination').append($previous);
- 
-    }
+    $(".pagination").append($previous);
+  }
 
-    if(numberOfRecords-begin > numberToShow){
-      
-      let $next = $(`<li class="page-item">
-      <a class="page-link" href="index.html?begin=${begin + numberToShow}&numberToShow=${numberToShow}"  aria-label="Next">
+  if (numberOfRecords - begin > numberToShow) {
+    let $next = $(`<li class="page-item">
+      <a class="page-link" onclick="updateView(${
+        begin + numberToShow
+      }, ${numberToShow});return false;"  aria-label="Next">
       <span aria-hidden="true">Proxima »</span></a>
       </li>`);
 
-      $('.pagination').append($next);
- 
-    }
+    $(".pagination").append($next);
+  }
 
-    people = people.slice(begin, begin + numberToShow);
+  people = people.slice(begin, begin + numberToShow);
 
-    people.forEach(person => {
-
-        let $personItem = createPersonItem(person);
-        $('#people-table').append($personItem);
-
-    });
+  people.forEach((person) => {
+    let $personItem = createPersonItem(person);
+    $("#people-table").append($personItem);
+  });
 }
 
+$("#search").on("input", function () {
+  updateView(0, 100, $("#search").val());
+});
 
-updateView();
+$("#number-to-show").change(function () {
+  let numberToShow = $("#number-to-show option:selected").val();
+  updateView(0, numberToShow);
+});
 
-
-})
+$(function () {
+  updateView();
+});

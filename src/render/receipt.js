@@ -1,6 +1,6 @@
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('src/db/db.json')
+const adapter = new FileSync('db.json')
 const db = low(adapter)
 const querystring = require('querystring');
 
@@ -26,7 +26,7 @@ $(function() {
 
     for (var d = new Date(initialDate); d <= new Date(finalDate); d.setMonth(d.getMonth() + 1)) {
 
-        month = months[d.getMonth()];
+        month = months[d.getMonth()+1];
         year = d.getFullYear();
 
         dateText = `Brasília, dia ${Person.day} de ${month} de ${year}`;

@@ -24,7 +24,7 @@ $(function() {
 
             let currentDate = new Date();
             let year = currentDate.getFullYear();
-            let month = currentDate.getMonth()+1;
+            let month = currentDate.getMonth();
             currentDate = `${year}-${month}`
 
             url = `&initialDate=${currentDate}&finalDate=${currentDate}`;

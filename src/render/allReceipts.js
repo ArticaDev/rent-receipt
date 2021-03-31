@@ -2,6 +2,7 @@ const db = window.db;
 const electron = require('electron');
 const fs = require('fs');
 
+
 $(function() {
 
     let all_payments = db.get("people").map("payments").value()
@@ -52,7 +53,7 @@ $(function() {
 
             let currentDate = new Date();
             let year = currentDate.getFullYear();
-            let month = currentDate.getMonth()+1;
+            let month = currentDate.getMonth();
             currentDate = `${year}-${month}`
 
             url = `&initialDate=${currentDate}&finalDate=${currentDate}`;
@@ -64,6 +65,10 @@ $(function() {
 
         }
         
+        let folder_path = electron.remote.dialog.showOpenDialogSync({
+            properties: ['openDirectory']
+        });        
+
 
         let all_names = db.get("people").map("name").value();
         all_names.forEach(function(name){
@@ -81,7 +86,7 @@ $(function() {
     
             win.webContents.on('did-finish-load', () => {
                 win.webContents.printToPDF(options).then(data => {
-                    fs.writeFile(`recibos/${name}.pdf`, data, function (err) {
+                    fs.writeFile(`${folder_path}/${name}.pdf`, data, function (err) {
                         if (err) console.log(err);
                         win.close();
                     });

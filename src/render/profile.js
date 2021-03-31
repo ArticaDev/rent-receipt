@@ -1,59 +1,51 @@
 const db = window.db;
-const querystring = require('querystring');
+const querystring = require("querystring");
 
+$(function () {
+  let queryParams = querystring.parse(global.location.search);
+  let name = queryParams["?name"];
+  let Person = db.get("people").find({ name: name }).value();
+  $("#title").text(Person.name);
+  $("#name").val(Person.name);
+  $("#cpf").val(Person.cpf);
+  $("#value").val(Person.value);
+  $("#address").val(Person.address);
+  $("#emitter").val(Person.emitter);
+  $("#day").val(Person.day);
+  $("#subject").val(Person.subject);
 
-$(function() {
+  $("#update-person-info").click(function (e) {
+    e.preventDefault();
 
-    let queryParams = querystring.parse(global.location.search);
-    let name = queryParams['?name']
-    let Person = db.get('people').find({ name: name }).value();
-    $('#title').text(Person.name);
-    $('#name').val(Person.name);
-    $('#cpf').val(Person.cpf);
-    $('#value').val(Person.value);
-    $('#address').val(Person.address);
-    $('#emitter').val(Person.emitter);
-    $('#day').val(Person.day);
-    $('#subject').val(Person.subject);
+    let value = $("#value").val();
+    value = value.split("R$ ")[1];
 
-    $("#update-person-info").click(function(e) {
-        e.preventDefault();
+    db.get("people")
+      .find({ name: name })
+      .assign({
+        name: $("#name").val(),
+        value: value,
+        cpf: $("#cpf").val(),
+        emitter: $("#emitter").val(),
+        day: $("#day").val(),
+      })
+      .write();
+  });
 
-        let value = $('#value').val()
-        value = value.split("R$ ")[1]
+  $("#update-subject-info").click(function (e) {
+    e.preventDefault();
 
-        db.get('people')
-        .find({ name: name })
-        .assign({ name:$('#name').val(), value:value, 
-                  cpf:$('#cpf').val(), emitter:$('#emitter').val() ,
-                  day:$('#day').val()
-        })
-        .write()
-        
-    });
+    db.get("people")
+      .find({ name: name })
+      .assign({ subject: $("#subject").val(), address: $("#address").val() })
+      .write();
+  });
 
-    $("#update-subject-info").click(function(e) {
-        e.preventDefault();
+  $("#remove-person").click(function (e) {
+    e.preventDefault();
 
-        db.get('people')
-        .find({ name: name })
-        .assign({  subject:$('#subject').val(),
-                  address:$('#address').val()})
-        .write()
-        
-    });
+    db.get("people").remove({ name: name }).write();
 
-    $("#remove-person").click(function(e) {
-
-        e.preventDefault();
-
-
-        db.get('people')
-        .remove({ name: name })
-        .write()
-
-        window.location.href='index.html';
-    });
-
-
+    window.location.href = "index.html";
+  });
 });

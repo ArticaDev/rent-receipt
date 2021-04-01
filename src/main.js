@@ -23,6 +23,7 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 1600,
     height: 800,
+    icon: "src/assets/icon/app_icon.ico",
     webPreferences: {
       preload: path.resolve(`${__dirname}/preload.js`),
       nodeIntegration: true,

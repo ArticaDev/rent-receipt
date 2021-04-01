@@ -58,15 +58,7 @@ $(function() {
 
         }
 
-
-        let currentPage = location.pathname.split('/').slice(-1)[0];
-        if(currentPage === "receasdasdasdiptspage.html"){
-            url = `receipt.html?allReceipts=1${url}`;
-        }else{
-            url = `receipt.html${global.location.search}${url}`
-        }
-
-        window.location.href = url;
+        window.location.href = `receipt.html${global.location.search}${url}`;
 
     });
 

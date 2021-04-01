@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+    <base href="./">
     <meta charset="utf-8" />
     <meta
       Nome="viewport"
@@ -16,10 +17,7 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+ 
     <link
       rel="stylesheet"
       href="../assets/fonts/fontawesome5-overrides.min.css"
@@ -79,17 +77,7 @@
                 <p class="text-primary m-0 font-weight-bold">
                   Pessoas Cadastradas
                 </p>
-                <!-- <div class="custom-control custom-switch">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customSwitch1"
-                    onclick="darkMode()"
-                  />
-                  <label class="custom-control-label" for="customSwitch1"
-                    >Ativar modo escuro</label
-                  >
-                </div> -->
+
               </div>
               <div class="card-body">
                 <div class="row">
@@ -101,8 +89,8 @@
                     >
                       <label
                         >Mostrar&nbsp;<select
-                          class="form-control form-control-sm custom-select custom-select-sm"
-                        >
+                          id="number-to-show"
+                          class="form-control form-control-sm custom-select custom-select-sm">
                           <option value="10" selected="">10</option>
                           <option value="25">25</option>
                           <option value="50">50</option>
@@ -111,13 +99,15 @@
                       >
                     </div>
                   </div>
+
+
                   <div class="col-md-6">
                     <div
                       class="text-md-right dataTables_filter"
-                      id="dataTable_filter"
-                    >
+                      id="dataTable_filter">
                       <label
                         ><input
+                          id="search"
                           type="search"
                           class="form-control form-control-sm"
                           aria-controls="dataTable"
@@ -125,6 +115,7 @@
                       /></label>
                     </div>
                   </div>
+
                 </div>
                 <div
                   class="table-responsive table mt-2"
@@ -162,25 +153,7 @@
                       class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers"
                     >
                       <ul class="pagination">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" aria-label="Previous"
-                            ><span aria-hidden="true">«</span></a
-                          >
-                        </li>
-                        <li class="page-item active">
-                          <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#" aria-label="Next"
-                            ><span aria-hidden="true">»</span></a
-                          >
-                        </li>
+
                       </ul>
                     </nav>
                   </div>
@@ -220,8 +193,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="../assets/js/script.min.js"></script>
     <script src="../render/index.js"></script>
 

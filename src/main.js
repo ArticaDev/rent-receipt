@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcRenderer } = require('electron');
+const { app, BrowserWindow } = require('electron');
 
 if (require('electron-squirrel-startup')) return;
 
@@ -6,8 +6,7 @@ const path = require('path');
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
-
-const adapter = new FileSync(path.join(app.getAppPath(), "src/db/db.json"))
+const adapter = new FileSync("db.json")
 const db = low(adapter)
 
 // Set some defaults (required if your JSON file is empty)
@@ -24,8 +23,9 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 1600,
     height: 800,
+    icon: "src/assets/icon/app_icon.ico",
     webPreferences: {
-      preload: path.join(app.getAppPath(), "src/preload.js"),
+      preload: path.resolve(`${__dirname}/preload.js`),
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true
@@ -37,7 +37,8 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, 'template/index.html'));
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  mainWindow.setMenuBarVisibility(false)
+  //mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished

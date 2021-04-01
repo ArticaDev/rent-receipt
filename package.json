@@ -17,7 +17,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "asar": true
+        "asar": true,
+        "icon": "src/assets/icon/app_icon.ico"
       },
       "makers": [
         {

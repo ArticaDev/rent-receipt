@@ -47,7 +47,7 @@ $(function() {
     $('.cpf').text(Person.cpf);
     $('.value').text("R$ " + Person.value);
     $('.written-value').text(`${Person.value} reais`);
-    $('.subject-address').text(`${Person.address} no endereço ${Person.subject}`);
+    $('.subject-address').text(`${Person.subject} no endereço ${Person.address}`);
     $('.emitter').text(Person.emitter);
 
 });

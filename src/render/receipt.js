@@ -6,8 +6,13 @@ const querystring = require("querystring");
 
 function insertReceiptInfo(person) {
   let personPage = $(`.${person.name}`);
-  personPage.find(".name").text(person.name);
-  personPage.find(".cpf").text(person.cpf);
+
+  if("cpf" in person && person.cpf != ""){
+    personPage.find(".name").text(`${person.name} - CPF/CNPJ nº ${person.cpf}`);
+  }else{
+    personPage.find(".name").text(person.name);
+  }
+  
   personPage.find(".value").text("R$ " + person.value);
   personPage.find(".written-value").text(`${person.value} reais`);
   personPage

@@ -24,8 +24,13 @@ function insertReceiptInfo(person) {
 
 $(function () {
   let queryParams = querystring.parse(global.location.search);
-  let initialDate = queryParams["initialDate"]+"-01";
-  let finalDate = queryParams["finalDate"]+"-28";
+
+  let initialDate = queryParams["initialDate"].split("-");
+  let finalDate = queryParams["finalDate"].split("-");
+  
+  //setting month to 0-11 format, instead of 1-12
+  initialDate[1] -= 1;
+  finalDate[1] -= 1;
 
   let name = queryParams["?name"];
   
@@ -58,16 +63,16 @@ $(function () {
   let pageCount = 0;
 
   for (
-    var d = new Date(initialDate);
-    d <= new Date(finalDate);
+    var d = new Date(... initialDate);
+    d <= new Date(... finalDate);
   ) {
 
-    month = months[d.getMonth() + 1];
+    month = months[d.getMonth()];
     year = d.getFullYear();
 
     d.setMonth(d.getMonth()+1);
 
-    mextMonth = months[d.getMonth() + 1];
+    mextMonth = months[d.getMonth()];
     nextYear = d.getUTCFullYear();
 
     if (pageCount > 0) {

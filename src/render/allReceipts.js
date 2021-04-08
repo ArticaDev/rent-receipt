@@ -38,7 +38,7 @@ $(function () {
         let currentDate = new Date();
         let year = currentDate.getFullYear();
         let month = currentDate.getMonth();
-        currentDate = `${year}-${month}`
+        currentDate = `${year}-${month+1}`
 
         url = `&initialDate=${currentDate}&finalDate=${currentDate}`;
 

@@ -19,7 +19,7 @@ function insertReceiptInfo(person) {
     .find(".subject-address")
     .text(`${person.subject} no endereço ${person.address}`);
   personPage.find(".emitter").text(person.emitter);
-  personPage.find(".day").text(`Brasília, dia ${person.day} `);
+  personPage.find(".day").text(`${person.day}`);
 }
 
 $(function () {
@@ -56,24 +56,27 @@ $(function () {
   $(".receipt").clone().appendTo(".a4");
 
   let pageCount = 0;
-  let dateText;
 
   for (
     var d = new Date(initialDate);
     d <= new Date(finalDate);
-    d.setMonth(d.getMonth() + 1)
   ) {
+
     month = months[d.getMonth() + 1];
     year = d.getFullYear();
 
-    dateText = `de ${month} de ${year}`;
+    d.setMonth(d.getMonth()+1);
 
-    if (pageCount == 0) {
-      $(".month-year").text(dateText);
-    } else {
+    mextMonth = months[d.getMonth() + 1];
+    nextYear = d.getUTCFullYear();
+
+    if (pageCount > 0) {
       $(".a4").first().clone().appendTo("body");
-      $(".a4").eq(pageCount).find(".month-year").text(dateText);
-    }
+    } 
+    
+    $(".a4").eq(pageCount).find(".month-year").text(`de ${month} de ${year}`);
+    $(".a4").eq(pageCount).find(".currentMonth").text(month);
+    $(".a4").eq(pageCount).find(".YearAndNextMonth").text(`de ${mextMonth} de ${nextYear}`);
 
     pageCount++;
   }

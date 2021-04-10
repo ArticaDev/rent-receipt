@@ -80,7 +80,7 @@ $(function () {
     } 
     
     $(".a4").eq(pageCount).find(".month-year").text(`de ${month} de ${year}`);
-    $(".a4").eq(pageCount).find(".currentMonth").text(month);
+    $(".a4").eq(pageCount).find(".currentMonth").text(` de ${month}`);
     $(".a4").eq(pageCount).find(".YearAndNextMonth").text(` de ${mextMonth} de ${nextYear}`);
 
     pageCount++;

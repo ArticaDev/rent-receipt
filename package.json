@@ -47,6 +47,7 @@
   "dependencies": {
     "autonumeric": "^4.6.0",
     "electron-squirrel-startup": "^1.0.0",
+    "extenso": "^2.0.1",
     "lowdb": "^1.0.0"
   },
   "devDependencies": {

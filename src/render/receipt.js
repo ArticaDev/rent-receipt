@@ -3,6 +3,7 @@ const FileSync = require("lowdb/adapters/FileSync");
 const adapter = new FileSync("db.json");
 const db = low(adapter);
 const querystring = require("querystring");
+const extenso = require('extenso');
 
 function insertReceiptInfo(person) {
   let personPage = $(`.${person.name.replace(/ /g,"_")}`);
@@ -14,7 +15,7 @@ function insertReceiptInfo(person) {
   }
   
   personPage.find(".value").text("R$ " + person.value);
-  personPage.find(".written-value").text(`${person.value} reais`);
+  personPage.find(".written-value").text(extenso(`${person.value}`, { mode: 'currency' }));
   personPage
     .find(".subject-address")
     .text(`${person.subject} no endereço ${person.address}`);

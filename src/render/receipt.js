@@ -5,7 +5,7 @@ const db = low(adapter);
 const querystring = require("querystring");
 
 function insertReceiptInfo(person) {
-  let personPage = $(`.${person.name}`);
+  let personPage = $(`.${person.name.replace(/ /g,"_")}`);
 
   if("cpf" in person && person.cpf != ""){
     personPage.find(".name").text(`${person.name} - CPF/CNPJ nº ${person.cpf}`);
@@ -33,9 +33,11 @@ $(function () {
   finalDate[1] -= 1;
 
   let name = queryParams["?name"];
-  
+
   if("?name" in queryParams){
     Person = db.get("people").find({ name: name }).value();
+    console.log(Person.emitter);
+
   }else{
     Person = db.get("people").take(1).value()[0];
   }
@@ -86,14 +88,14 @@ $(function () {
     pageCount++;
   }
 
-  $(".a4").wrapAll(`<div class = '${Person.name}'></div>`);
+  $(".a4").wrapAll(`<div class = '${Person.name.replace(/ /g,"_")}'></div>`);
 
   insertReceiptInfo(Person);
 
   if (!("?name" in queryParams)) {
     let all_people = db.get("people").value().slice(1);
     all_people.forEach(function (person) {
-      $(`.${Person.name}`).clone().prop("class", person.name).appendTo("body");
+      $(`.${Person.name.replace(/ /g,"_")}`).clone().prop("class", person.name.replace(/ /g,"_")).appendTo("body");
 
       insertReceiptInfo(person);
     });

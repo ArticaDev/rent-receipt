@@ -37,10 +37,10 @@ $(function () {
     db.get("people")
       .find({ name: name })
       .assign({
-        name: $("#name").val(),
+        name: $("#name").val().trim(),
         value: value,
         cpf: $("#cpf").val(),
-        emitter: $("#emitter").val(),
+        emitter: $("#emitter").val().trim(),
         day: $("#day").val(),
       })
       .write();
@@ -53,7 +53,7 @@ $(function () {
 
     db.get("people")
       .find({ name: name })
-      .assign({ subject: $("#subject").val(), address: $("#address").val() })
+      .assign({ subject: $("#subject").val().trim(), address: $("#address").val().trim() })
       .write();
     
       $("#subject-form").append(sucess);

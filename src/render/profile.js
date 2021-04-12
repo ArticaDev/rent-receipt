@@ -32,7 +32,7 @@ $(function () {
     e.preventDefault();
 
     let value = $("#value").val();
-    value = value.split("R$ ")[1];
+    // value = value.split("")[1];
 
     db.get("people")
       .find({ name: name })

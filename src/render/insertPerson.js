@@ -10,9 +10,12 @@ $(function() {
         if (!$(".user").valid())return;
 
         $(".alert").show("fast");
+        setTimeout(function () {
+            $('.alert').hide("fast");
+        }, 1500);
 
         let value = $('#value').val()
-        value = value.split("R$ ")[1]
+        // value = value.split("")[1]
 
         db.get('people')
             .push({ name:$('#name').val(), value:value, 

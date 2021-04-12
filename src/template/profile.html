@@ -113,14 +113,14 @@
                               <div class="col">
                                 <div class="form-group">
                                   <label for="value"
-                                    ><strong>Valor</strong></label
+                                    ><strong>Valor em reais</strong></label
                                   ><input
                                     type="value"
                                     class="form-control"
                                     id="value"
                                     placeholder="R$ 150,00"
                                     name="value"
-                                    onkeypress="$(this).mask('R$ 999.990,00')"
+                                    onkeypress="$(this).mask('000.000.000.000.000,00', {reverse: true})"
                                   />
                                 </div>
                               </div>
@@ -163,7 +163,6 @@
                                 Salvar Alterações
                               </button>
                               <button
-                                
                                 class="btn btn-danger btn-sm"
                                 type="button"
                                 data-toggle="modal"
@@ -210,7 +209,7 @@
                                         Cancelar
                                       </button>
                                       <button
-                                      id="remove-person"
+                                        id="remove-person"
                                         type="submit"
                                         class="btn btn-success"
                                       >
@@ -270,7 +269,6 @@
                               </button>
                             </div>
                           </form>
-
                         </div>
                       </div>
                     </div>

@@ -15,7 +15,7 @@ function insertReceiptInfo(person) {
   }
   
   personPage.find(".value").text("R$ " + person.value);
-  personPage.find(".written-value").text(extenso(`${person.value}`, { mode: 'currency' }));
+  personPage.find(".written-value").text(extenso(`${person.value.replace(".",",")}.`, { mode: 'currency' }));
   personPage
     .find(".subject-address")
     .text(`${person.subject} no endereço ${person.address}`);

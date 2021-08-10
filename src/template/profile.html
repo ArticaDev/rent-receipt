@@ -114,14 +114,20 @@
                                 <div class="form-group">
                                   <label for="value"
                                     ><strong>Valor em reais</strong></label
-                                  ><input
-                                    type="value"
-                                    class="form-control"
-                                    id="value"
-                                    placeholder="R$ 150,00"
-                                    name="value"
-                                    onkeypress="$(this).mask('000.000.000.000.000,00', {reverse: true})"
-                                  />
+                                  > <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon1">R$</span>
+                                    </div>
+                                    <input
+                                      class="form-control form-control-user"
+                                      type="text"
+                                      id="value"
+                                      placeholder="Digite o valor do recibo"
+                                      name="valor"
+                                      onkeypress="$(this).mask('000.000.000.000.000,00', {reverse: true})"
+                                      required
+                                    />
+                                  </div>
                                 </div>
                               </div>
                               <div class="col">

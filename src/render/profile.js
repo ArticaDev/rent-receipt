@@ -8,7 +8,7 @@ $(function () {
   $("#title").text(Person.name);
   $("#name").val(Person.name);
   $("#cpf").val(Person.cpf);
-  $("#value").val(`R$ ${Person.value}`);
+  $("#value").val(`${Person.value}`);
   $("#address").val(Person.address);
   $("#emitter").val(Person.emitter);
   $("#day").val(Person.day);

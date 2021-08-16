@@ -49,6 +49,7 @@
     "electron-squirrel-startup": "^1.0.0",
     "extenso": "^2.0.1",
     "lowdb": "^1.0.0",
+    "nanoid": "^3.1.25",
     "slugify": "^1.6.0"
   },
   "devDependencies": {

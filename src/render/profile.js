@@ -4,7 +4,7 @@ const querystring = require("querystring");
 $(function () {
   let queryParams = querystring.parse(global.location.search);
   let name = queryParams["?name"];
-  let Person = db.get("people").find({ name: name }).value();
+  let Person = db.get("people").find({ id: name }).value();
   $("#title").text(Person.name);
   $("#name").val(Person.name);
   $("#cpf").val(Person.cpf);
@@ -35,7 +35,7 @@ $(function () {
     // value = value.split("")[1];
 
     db.get("people")
-      .find({ name: name })
+      .find({ id: name })
       .assign({
         name: $("#name").val().trim(),
         value: value,
@@ -52,7 +52,7 @@ $(function () {
     e.preventDefault();
 
     db.get("people")
-      .find({ name: name })
+      .find({ id: name })
       .assign({ subject: $("#subject").val().trim(), address: $("#address").val().trim() })
       .write();
     
@@ -63,7 +63,7 @@ $(function () {
   $("#remove-person").click(function (e) {
     e.preventDefault();
 
-    db.get("people").remove({ name: name }).write();
+    db.get("people").remove({ id: name }).write();
 
     window.location.href = "index.html";
   });

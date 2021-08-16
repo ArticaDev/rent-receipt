@@ -5,7 +5,7 @@ $(function() {
 
     let queryParams = querystring.parse(global.location.search);
     let name = queryParams["?name"];
-    let Person = db.get("people").find({ name: name }).value();
+    let Person = db.get("people").find({ id: name }).value();
   
     $(".display-name").append(name);
   
@@ -18,7 +18,7 @@ $(function() {
       Person.payments[month] = $(this).is(":checked");
   
       db.get("people")
-        .find({ name: name })
+        .find({ id: name })
         .assign({ payments: Person.payments })
         .write();
     });

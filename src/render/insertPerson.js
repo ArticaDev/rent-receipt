@@ -1,5 +1,5 @@
 const db = window.db;
-
+const nanoid = window.nanoid;
 
 $(function() {
 
@@ -18,7 +18,9 @@ $(function() {
         // value = value.split("")[1]
 
         db.get('people')
-            .push({ name:$('#name').val(), value:value, 
+            .push({ 
+                    id: nanoid(10),
+                    name:$('#name').val(), value:value, 
                     cpf:$('#cpf').val(), address:$('#address').val(), 
                     subject:$('#subject').val(), day:$('#day').val(), 
                     emitter:$('#emitter').val(), 

@@ -37,7 +37,7 @@ $(function () {
   let name = queryParams["?name"];
 
   if("?name" in queryParams){
-    Person = db.get("people").find({ name: name }).value();
+    Person = db.get("people").find({ id: name }).value();
     console.log(Person.emitter);
 
   }else{

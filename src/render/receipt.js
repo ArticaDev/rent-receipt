@@ -4,9 +4,10 @@ const adapter = new FileSync("db.json");
 const db = low(adapter);
 const querystring = require("querystring");
 const extenso = require('extenso');
+var slugify = require('slugify');
 
 function insertReceiptInfo(person) {
-  let personPage = $(`.${person.name.replace(/ /g,"_")}`);
+  let personPage = $(`[class="${slugify(person.name)}"]`);
 
   if("cpf" in person && person.cpf != ""){
     personPage.find(".name").text(`${person.name} - CPF/CNPJ nº ${person.cpf}`);
@@ -69,7 +70,6 @@ $(function () {
     var d = new Date(... initialDate);
     d <= new Date(... finalDate);
   ) {
-
     month = months[d.getMonth()];
     year = d.getFullYear();
 
@@ -89,15 +89,15 @@ $(function () {
     pageCount++;
   }
 
-  $(".a4").wrapAll(`<div class = '${Person.name.replace(/ /g,"_")}'></div>`);
+  $(".a4").wrapAll(`<div class = '${slugify(Person.name)}'></div>`);
 
   insertReceiptInfo(Person);
 
   if (!("?name" in queryParams)) {
     let all_people = db.get("people").value().slice(1);
     all_people.forEach(function (person) {
-      $(`.${Person.name.replace(/ /g,"_")}`).clone().prop("class", person.name.replace(/ /g,"_")).appendTo("body");
-
+      $(`.${slugify(Person.name)}`).clone().prop("class", slugify(person.name)).appendTo("body");
+      
       insertReceiptInfo(person);
     });
   }

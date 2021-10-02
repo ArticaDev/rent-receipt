@@ -62,8 +62,6 @@ $(function () {
   let month;
   let year;
 
-  $(".receipt").clone().appendTo(".a4");
-
   let pageCount = 0;
 
   for (
